@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://dimlavrenko-lab.github.io/lab12-lavrenko/sitemap.xml
