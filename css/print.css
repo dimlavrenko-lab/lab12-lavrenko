@@ -1,0 +1,15 @@
+/* Таблиця стилів для друку — завдання підвищеної складності. */
+header, footer, button, video, iframe { display: none; }
+
+body, main, table {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    background: #ffffff;
+    box-shadow: none;
+}
+
+table { break-inside: avoid; }
+a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; }

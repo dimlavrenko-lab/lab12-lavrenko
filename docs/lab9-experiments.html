@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Лабораторна 9 — експерименти CSS Grid</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { max-width: 1100px; margin: auto; padding: 32px; color: #14213d; font: 16px/1.5 Arial, sans-serif; }
+        h1, h2 { color: #173b73; }
+        section { break-after: page; min-height: 90vh; }
+        .demo { display: grid; gap: 12px; padding: 16px; border: 3px dashed #173b73; background: #edf4ff; }
+        .demo > * { min-height: 72px; padding: 16px; border-radius: 8px; color: white; background: #b43e16; font-weight: 700; }
+        .equal { grid-template-columns: repeat(3, 1fr); }
+        .fixed { grid-template-columns: 200px 1fr 1fr; }
+        .ratio { grid-template-columns: 1fr 2fr 1fr; }
+        .lines { grid-template-columns: repeat(4, 1fr); }
+        .lines .wide { grid-column: span 2; }
+        .lines .full { grid-column: 1 / -1; }
+        .lines .tall { grid-row: span 2; }
+        .areas { grid-template-columns: 220px 1fr; grid-template-areas: "head head" "side main" "foot foot"; }
+        .areas .head { grid-area: head; }.areas .side { grid-area: side; }.areas .main { grid-area: main; }.areas .foot { grid-area: foot; }
+        .fit { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+        .fill { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+        .dense { grid-template-columns: repeat(4, 1fr); grid-auto-flow: dense; }
+        .dense .feature { grid-column: span 2; grid-row: span 2; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid #718096; text-align: left; }
+        th { color: white; background: #173b73; }
+        code { padding: 2px 5px; background: #edf4ff; }
+        .note { padding: 16px; border-left: 6px solid #b43e16; background: #fff3ed; }
+        @media (max-width: 650px) { body { padding: 16px; } .equal, .fixed, .ratio, .lines, .areas, .dense { grid-template-columns: 1fr; grid-template-areas: none; } .areas > * { grid-area: auto !important; } }
+    </style>
+</head>
+<body>
+    <h1>Експерименти CSS Grid</h1>
+    <p>Лабораторна робота 9. Виконав Лавренко Дмитро, група 122КН.</p>
+
+    <section>
+        <h2>1. Частки fr і фіксований трек</h2>
+        <h3>Три рівні колонки</h3><div class="demo equal"><div>1fr</div><div>1fr</div><div>1fr</div></div>
+        <h3>Фіксована та гнучкі</h3><div class="demo fixed"><div>200px</div><div>1fr</div><div>1fr</div></div>
+        <h3>Співвідношення 1 : 2 : 1</h3><div class="demo ratio"><div>1fr</div><div>2fr</div><div>1fr</div></div>
+        <table><thead><tr><th>Шаблон</th><th>Результат</th></tr></thead><tbody><tr><td><code>1fr 1fr 1fr</code></td><td>Вільне місце розподілено порівну.</td></tr><tr><td><code>200px 1fr 1fr</code></td><td>Перший трек сталий, залишок ділиться навпіл.</td></tr><tr><td><code>1fr 2fr 1fr</code></td><td>Середній трек удвічі ширший за крайні.</td></tr></tbody></table>
+    </section>
+
+    <section>
+        <h2>2. Розміщення за лініями</h2>
+        <div class="demo lines"><div class="wide">grid-column: span 2</div><div>звичайний</div><div>звичайний</div><div class="full">grid-column: 1 / -1</div><div class="tall">grid-row: span 2</div><div>комірка</div><div>комірка</div><div>комірка</div><div>комірка</div></div>
+        <p>Grid нумерує межі треків. Значення <code>1 / -1</code> розтягує елемент від першої до останньої лінії.</p>
+    </section>
+
+    <section>
+        <h2>3. Іменовані області сторінки</h2>
+        <div class="demo areas"><div class="head">header</div><div class="side">sidebar</div><div class="main">main</div><div class="foot">footer</div></div>
+        <p>Назви роблять схему читабельною. У фінальному сайті на вузькому екрані області йдуть в один стовпець, від 768 px — у два.</p>
+        <p class="note">Під час експерименту footer займав лише одну колонку, тому утворювалася порожня клітинка. У фіналі повернуто <code>"footer footer"</code>.</p>
+    </section>
+
+    <section>
+        <h2>4. auto-fit і auto-fill</h2>
+        <h3>auto-fit</h3><div class="demo fit"><div>1</div><div>2</div><div>3</div></div>
+        <h3>auto-fill</h3><div class="demo fill"><div>1</div><div>2</div><div>3</div></div>
+        <p><code>auto-fit</code> стискає порожні треки й розтягує картки. <code>auto-fill</code> зберігає місце під можливі порожні колонки. Для галереї обрано auto-fit.</p>
+    </section>
+
+    <section>
+        <h2>5. Адаптивність без зайвих медіазапитів</h2>
+        <div class="demo fit"><div>HTML</div><div>CSS</div><div>Grid</div><div>Доступність</div></div>
+        <p>Формула <code>repeat(auto-fit, minmax(160px, 1fr))</code> сама змінює кількість колонок. <code>place-items: center</code> центрує вміст усередині клітинок, а <code>justify-content</code> рухав би всю сітку як єдиний блок.</p>
+        <table><thead><tr><th>Ширина</th><th>Очікувана поведінка</th></tr></thead><tbody><tr><td>320–375 px</td><td>Одна колонка, меню переноситься, горизонтального скролу немає.</td></tr><tr><td>768–1024 px</td><td>Sidebar і main утворюють дві колонки.</td></tr><tr><td>1440 px</td><td>Sidebar 280 px, контент обмежений до 1100 px.</td></tr></tbody></table>
+    </section>
+
+    <section>
+        <h2>6. Додаткове завдання: журнальна сітка і dense</h2>
+        <div class="demo dense"><div class="feature">Перша картка 2 × 2</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div>
+        <p>У фінальній галереї перша картка займає дві колонки й два рядки на широкому екрані. <code>grid-auto-flow: dense</code> щільно заповнює прогалини, але у фінальній версії не використовується: візуальний порядок може не збігатися з DOM-порядком і заважати клавіатурній навігації.</p>
+    </section>
+
+    <section>
+        <h2>7. Аналіз трьох Grid-контейнерів</h2>
+        <table><thead><tr><th>Контейнер</th><th>Треки</th><th>Принцип</th><th>Висновок</th></tr></thead><tbody><tr><td>Каркас сторінки</td><td>240–280 px + 1fr</td><td>Іменовані області</td><td>Grid зручний для двовимірної структури.</td></tr><tr><td>Галерея</td><td>auto-fit + minmax(280px, 1fr)</td><td>Автоматичні колонки</td><td>Більшість адаптації працює без breakpoint.</td></tr><tr><td>Статистика</td><td>auto-fit + minmax(160px, 1fr)</td><td>place-items</td><td>Картки рівномірні та легко центруються.</td></tr></tbody></table>
+        <p>Порівняно з Flexbox, Grid контролює одночасно рядки й колонки. Flexbox зручніший для одновимірного меню, тому навігація у шапці залишена на Flexbox.</p>
+    </section>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Порівняльні таблиці мов програмування, парадигм, типізації, способів виконання та обчислювальної складності популярних алгоритмів.">
+    <meta name="author" content="Лавренко Дмитро">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <title>Порівняння мов програмування та складності алгоритмів</title>
+</head>
+<body id="top" class="page">
+    <header class="hero page__header">
+        <a href="index.html" class="site-title">Мови програмування та алгоритми</a>
+        <nav aria-label="Головна навігація">
+            <ul class="menu">
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="about.html">Про напрям</a></li>
+                <li><a href="comparison.html" aria-current="page">Порівняння</a></li>
+                <li><a href="entities.html">Символьні сутності</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="contacts.html">Контакти</a></li>
+                <li><a href="application.html">Заявка</a></li>
+                <li class="menu__spacer"><a href="pages/resources.html">Ресурси</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container page__main">
+        <h1>Порівняння технологій та алгоритмів</h1>
+        <section>
+            <h2>Мови програмування</h2>
+            <div class="table-wrapper"><table>
+                <caption>Порівняння популярних мов програмування</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Мова</th>
+                        <th scope="col">Парадигма</th>
+                        <th scope="col">Типізація</th>
+                        <th scope="col">Виконання</th>
+                        <th scope="col">Застосування</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Python</th>
+                        <td>Мультипарадигмова</td>
+                        <td>Динамічна</td>
+                        <td>Інтерпретована</td>
+                        <td>Веброзробка, автоматизація, аналіз даних</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">C++</th>
+                        <td>Мультипарадигмова</td>
+                        <td>Статична</td>
+                        <td>Компільована</td>
+                        <td>Системні програми, ігри, високопродуктивні застосунки</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">JavaScript</th>
+                        <td>Мультипарадигмова</td>
+                        <td>Динамічна</td>
+                        <td>Інтерпретована</td>
+                        <td>Інтерактивні вебсторінки та серверні застосунки</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Java</th>
+                        <td>Об'єктно-орієнтована</td>
+                        <td>Статична</td>
+                        <td>Байт-код JVM</td>
+                        <td>Корпоративні та Android-застосунки</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">Кожна мова має власні переваги, а вибір залежить від поставленої задачі.</td>
+                    </tr>
+                </tfoot>
+            </table></div>
+        </section>
+        <section>
+            <h2>Складність алгоритмів</h2>
+            <div class="table-wrapper"><table>
+                <caption>Складність алгоритмів у найкращому та найгіршому випадках</caption>
+                <thead>
+                    <tr>
+                        <th rowspan="2" scope="col">Алгоритм</th>
+                        <th colspan="2" scope="colgroup">Складність</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Найкраща</th>
+                        <th scope="col">Найгірша</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Бульбашкове сортування</th>
+                        <td>O(n)</td>
+                        <td>O(n²)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Сортування вставками</th>
+                        <td>O(n)</td>
+                        <td>O(n²)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Швидке сортування</th>
+                        <td>O(n log n)</td>
+                        <td>O(n²)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Бінарний пошук</th>
+                        <td>O(1)</td>
+                        <td>O(log n)</td>
+                    </tr>
+                </tbody>
+            </table></div>
+        </section>
+        <section>
+            <h2>Підтримка платформ</h2>
+            <div class="table-wrapper"><table>
+                <caption>Приклад складної таблиці з атрибутами id та headers</caption>
+                <thead>
+                    <tr>
+                        <th id="technology" rowspan="2">Технологія</th>
+                        <th id="platforms" colspan="3">Платформи</th>
+                    </tr>
+                    <tr>
+                        <th id="web" headers="platforms">Веб</th>
+                        <th id="desktop" headers="platforms">Настільні системи</th>
+                        <th id="mobile" headers="platforms">Мобільні системи</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th id="python" headers="technology">Python</th>
+                        <td headers="python platforms web">Так</td>
+                        <td headers="python platforms desktop">Так</td>
+                        <td headers="python platforms mobile">Обмежено</td>
+                    </tr>
+                    <tr>
+                        <th id="javascript" headers="technology">JavaScript</th>
+                        <td headers="javascript platforms web">Так</td>
+                        <td headers="javascript platforms desktop">Так</td>
+                        <td headers="javascript platforms mobile">Так</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            <p>Атрибут <code>headers</code> перелічує ідентифікатори всіх заголовків, пов'язаних із коміркою. Такий механізм застосовують у складних таблицях, де одного <code>scope</code> недостатньо.</p>
+        </section>
+        <section>
+            <h2>Часті питання</h2>
+            <details>
+                <summary>Навіщо таблиці потрібен елемент caption?</summary>
+                <p>Він повідомляє назву та призначення таблиці всім користувачам, зокрема тим, хто використовує програму екранного доступу.</p>
+            </details>
+            <details>
+                <summary>Чим відрізняються colspan і rowspan?</summary>
+                <p><code>colspan</code> об'єднує комірки по горизонталі, а <code>rowspan</code> — по вертикалі.</p>
+            </details>
+            <details>
+                <summary>Чому таблицю не використовують для верстки?</summary>
+                <p>Таблиця призначена для двовимірних даних. Розташування блоків сторінки виконують засобами CSS.</p>
+            </details>
+        </section>
+    </main>
+    <aside class="page__sidebar" aria-labelledby="sidebar-title"><h2 id="sidebar-title">Таблиці</h2><ul><li>Мови програмування</li><li>Складність алгоритмів</li><li>Підтримка платформ</li></ul></aside>
+    <a class="back-to-top" href="#top"><span aria-hidden="true">↑</span><span class="visually-hidden">Нагору</span></a>
+    <footer class="site-footer page__footer">
+        <address>
+            Автор: Лавренко Дмитро<br>
+            <a href="mailto:dimlavrenko@gmail.com">dimlavrenko@gmail.com</a><br>
+            <a href="tel:+380686818219">+380 68 681 82 19</a>
+        </address>
+        <p>&copy; 2026 Навчальний сайт</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Форма заявки на участь у навчальному проєкті з алгоритмів.">
+    <meta name="author" content="Лавренко Дмитро">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Заявка на участь у проєкті з алгоритмів</title>
+</head>
+<body id="top" class="page">
+    <header class="hero page__header">
+        <a href="index.html" class="site-title">Мови програмування та алгоритми</a>
+        <nav aria-label="Головна навігація">
+            <ul class="menu">
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="about.html">Про напрям</a></li>
+                <li><a href="comparison.html">Порівняння</a></li>
+                <li><a href="entities.html">Символьні сутності</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="contacts.html">Контакти</a></li>
+                <li><a href="application.html" aria-current="page">Заявка</a></li>
+                <li class="menu__spacer"><a href="pages/resources.html">Ресурси</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container page__main">
+        <h1>Заявка на участь у навчальному проєкті</h1>
+        <p>Поля, позначені як обов'язкові, необхідно заповнити перед надсиланням.</p>
+        <div class="media">
+            <span class="media__icon" aria-hidden="true">ⓘ</span>
+            <p class="media__body">Підказка: перед надсиланням перевірте контактні дані та коротко опишіть тему, з якою потрібна допомога.</p>
+        </div>
+
+        <form action="https://httpbin.org/post" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="project" value="algorithms-2026">
+
+            <fieldset>
+                <legend>Особисті та контактні дані</legend>
+
+                <p>
+                    <label for="fullname">Прізвище та ім'я</label><br>
+                    <input
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        minlength="3"
+                        maxlength="80"
+                        autocomplete="name"
+                        required
+                    >
+                </p>
+
+                <p>
+                    <label for="email">Електронна пошта</label><br>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        required
+                    >
+                </p>
+
+                <p>
+                    <label for="phone">Телефон</label><br>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        pattern="\+380[0-9]{9}"
+                        title="Формат: +380671234567"
+                        autocomplete="tel"
+                        required
+                    >
+                </p>
+
+                <p>
+                    <label for="password">Пароль учасника</label><br>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        minlength="8"
+                        autocomplete="new-password"
+                        required
+                    >
+                </p>
+
+                <p>
+                    <label for="password-confirm">Повторіть пароль</label><br>
+                    <input
+                        type="password"
+                        id="password-confirm"
+                        name="password_confirm"
+                        minlength="8"
+                        autocomplete="new-password"
+                        required
+                    >
+                </p>
+                <p class="form-hint">HTML перевіряє довжину, але рівність двох паролів має перевіряти JavaScript або сервер.</p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Навчання та рівень підготовки</legend>
+
+                <p>
+                    <label for="course">Курс навчання</label><br>
+                    <input
+                        type="number"
+                        id="course"
+                        name="course"
+                        min="1"
+                        max="4"
+                        step="1"
+                        required
+                    >
+                </p>
+
+                <p>
+                    <label for="start-date">Дата початку участі</label><br>
+                    <input
+                        type="date"
+                        id="start-date"
+                        name="start_date"
+                        min="2026-09-25"
+                        required
+                    >
+                </p>
+
+                <fieldset>
+                    <legend>Рівень підготовки</legend>
+                    <label><input type="radio" name="level" value="beginner" required> Початковий</label><br>
+                    <label><input type="radio" name="level" value="middle"> Середній</label><br>
+                    <label><input type="radio" name="level" value="advanced"> Високий</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Напрями інтересу</legend>
+                    <label><input type="checkbox" name="interests" value="sorting"> Сортування</label><br>
+                    <label><input type="checkbox" name="interests" value="graphs"> Графи</label><br>
+                    <label><input type="checkbox" name="interests" value="data-structures"> Структури даних</label>
+                </fieldset>
+
+                <p>
+                    <label for="stack">Технологічний стек</label><br>
+                    <select id="stack" name="stack" required>
+                        <option value="">Оберіть технологію</option>
+                        <optgroup label="Мови високого рівня">
+                            <option value="python">Python</option>
+                            <option value="csharp">C#</option>
+                            <option value="java">Java</option>
+                        </optgroup>
+                        <optgroup label="Системні мови">
+                            <option value="cpp">C++</option>
+                            <option value="rust">Rust</option>
+                        </optgroup>
+                    </select>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Досвід і портфоліо</legend>
+
+                <p>
+                    <label for="experience">Короткий опис досвіду</label><br>
+                    <textarea
+                        id="experience"
+                        name="experience"
+                        rows="6"
+                        minlength="20"
+                        maxlength="1500"
+                        required
+                    ></textarea>
+                </p>
+
+                <p>
+                    <label for="portfolio">Файли портфоліо (необов'язково)</label><br>
+                    <input
+                        type="file"
+                        id="portfolio"
+                        name="portfolio"
+                        accept=".pdf,.doc,.docx,.zip,image/png,image/jpeg"
+                        multiple
+                    >
+                </p>
+                <p class="form-hint">Можна вибрати кілька файлів PDF, DOC, DOCX, ZIP, PNG або JPG.</p>
+            </fieldset>
+
+            <p>
+                <button class="btn" type="submit">Надіслати заявку</button>
+                <button class="btn" type="reset">Очистити форму</button>
+                <button class="btn" type="button">Попередній перегляд</button>
+            </p>
+        </form>
+    </main>
+    <aside class="page__sidebar" aria-labelledby="sidebar-title"><h2 id="sidebar-title">Етапи заявки</h2><ol><li>Заповнити поля</li><li>Перевірити дані</li><li>Надіслати форму</li></ol></aside>
+
+    <a class="back-to-top" href="#top"><span aria-hidden="true">↑</span><span class="visually-hidden">Нагору</span></a>
+    <footer class="site-footer page__footer">
+        <address>
+            Автор: Лавренко Дмитро<br>
+            <a href="mailto:dimlavrenko@gmail.com">dimlavrenko@gmail.com</a><br>
+            <a href="tel:+380686818219">+380 68 681 82 19</a>
+        </address>
+        <p>&copy; 2026 Навчальний сайт</p>
+    </footer>
+</body>
+</html>

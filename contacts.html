@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Форма зворотного зв'язку навчального сайту про мови програмування.">
+    <meta name="author" content="Лавренко Дмитро">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Зворотний зв'язок — навчальний сайт</title>
+</head>
+<body id="top" class="page">
+    <header class="hero page__header">
+        <a href="index.html" class="site-title">Мови програмування та алгоритми</a>
+        <nav aria-label="Головна навігація">
+            <ul class="menu">
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="about.html">Про напрям</a></li>
+                <li><a href="comparison.html">Порівняння</a></li>
+                <li><a href="entities.html">Символьні сутності</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="contacts.html" aria-current="page">Контакти</a></li>
+                <li><a href="application.html">Заявка</a></li>
+                <li class="menu__spacer"><a href="pages/resources.html">Ресурси</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container page__main">
+        <h1>Зворотний зв'язок</h1>
+        <p>Заповніть форму, щоб поставити запитання або залишити відгук.</p>
+
+        <form action="https://httpbin.org/post" method="post">
+            <p class="field--required">
+                <label for="contact-name">Ім'я</label><br>
+                <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    minlength="2"
+                    maxlength="60"
+                    autocomplete="name"
+                    required
+                >
+            </p>
+
+            <p>
+                <label>
+                    Електронна пошта<br>
+                    <input
+                        type="email"
+                        name="email"
+                        autocomplete="email"
+                        required
+                    >
+                </label>
+            </p>
+
+            <p>
+                <label for="contact-topic">Тема звернення</label><br>
+                <select id="contact-topic" name="topic" required>
+                    <option value="">Оберіть тему</option>
+                    <option value="question">Запитання</option>
+                    <option value="feedback">Відгук</option>
+                    <option value="cooperation">Співпраця</option>
+                </select>
+            </p>
+
+            <p>
+                <label>
+                    Повідомлення<br>
+                    <textarea
+                        name="message"
+                        rows="6"
+                        minlength="10"
+                        maxlength="1000"
+                        required
+                    ></textarea>
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    <input type="checkbox" name="consent" value="yes" required>
+                    Погоджуюсь на обробку введених даних
+                </label>
+            </p>
+
+            <p>
+                <button class="btn" type="submit">Надіслати</button>
+                <button class="btn" type="reset">Очистити</button>
+            </p>
+        </form>
+    </main>
+    <aside class="page__sidebar" aria-labelledby="sidebar-title"><h2 id="sidebar-title">Перед надсиланням</h2><p>Перевірте адресу пошти та заповніть усі обов’язкові поля.</p></aside>
+
+    <a class="back-to-top" href="#top"><span aria-hidden="true">↑</span><span class="visually-hidden">Нагору</span></a>
+    <footer class="site-footer page__footer">
+        <address>
+            Автор: Лавренко Дмитро<br>
+            <a href="mailto:dimlavrenko@gmail.com">dimlavrenko@gmail.com</a><br>
+            <a href="tel:+380686818219">+380 68 681 82 19</a>
+        </address>
+        <p>&copy; 2026 Навчальний сайт</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00.000 --> 00:04.000
+Multimedia in HTML: images, SVG, and video.
+
+00:04.000 --> 00:08.000
+For responsive delivery, we use WebP with a JPEG fallback.
+
+00:08.000 --> 00:12.000
+Alt text, titles, and captions improve accessibility.
